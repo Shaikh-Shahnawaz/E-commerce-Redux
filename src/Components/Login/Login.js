@@ -13,7 +13,7 @@ const Login = () => {
         style={{ color: "white" }}
         onClick={handleShow}
       >
-        <i className="fa  fa-sign-in"></i> Login
+        <i className="fa  fa-sign-in" style={{color:"#daa520",fontSize:"20px"}}></i> Login
       </Button>
 
       <Modal show={show} onHide={handleClose}>

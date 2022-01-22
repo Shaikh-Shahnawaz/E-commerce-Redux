@@ -1,7 +1,20 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function Product() {
+  const [products, setProduct] = useState([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const res = await axios
+        .get("https://fakestoreapi.com/products")
+        .catch((err) => {
+          console.log(err);
+        });
+      setProduct(res.data);
+    };
+    fetchProducts();
+  });
   return (
     <>
       <div>
@@ -13,228 +26,37 @@ function Product() {
               </h1>
               <hr></hr>
             </div>
+            {products.map((ele) => (
+              <>
+                <div className="col-md-3 mb-4" key={ele.id}>
+                  <div className="card h-80 text-center p-4">
+                    <img
+                      src={ele.image}
+                      className="card-img-top"
+                      alt={ele.title}
+                      height="250px"
+                    />
+                    
+                    <div className="card-body">
+                      <h5 className="card-title">
+                        {ele.title.substring(0, 13)}...
+                      </h5>
 
-            <div className="col-md-3 mb-4">
-              <div className="card h-100 text-center p-4">
-                <img
-                  src="https://images-eu.ssl-images-amazon.com/images/I/416npwZlh7L._SX300_SY300_QL70_FMwebp_.jpg"
-                  className="card-img-top"
-                  alt="ok"
-                  height="250px"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ok</h5>
-                  <p className="card-text fw-bold">Rs.600</p>
-                  <NavLink to="/" className="btn btn-outline-danger">
-                    Buy Now
-                  </NavLink>
+                      <p className="card-text fw-bold">
+                        Rs. {Math.ceil(ele.price * 76)}
+                      </p>
+
+                      <NavLink
+                        to={`/productDetail/${ele.id}`}
+                        className="btn btn-outline-danger fw-bold" style={{borderRadius:"20px"}} 
+                      >
+                        Get Information
+                      </NavLink>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card h-100 text-center p-4">
-                <img
-                  src="https://images-eu.ssl-images-amazon.com/images/I/416npwZlh7L._SX300_SY300_QL70_FMwebp_.jpg"
-                  className="card-img-top"
-                  alt="ok"
-                  height="250px"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ok</h5>
-                  <p className="card-text fw-bold">Rs.600</p>
-                  <NavLink to="/" className="btn btn-outline-danger">
-                    Buy Now
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card h-100 text-center p-4">
-                <img
-                  src="https://images-eu.ssl-images-amazon.com/images/I/416npwZlh7L._SX300_SY300_QL70_FMwebp_.jpg"
-                  className="card-img-top"
-                  alt="ok"
-                  height="250px"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ok</h5>
-                  <p className="card-text fw-bold">Rs.600</p>
-                  <NavLink to="/" className="btn btn-outline-danger">
-                    Buy Now
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card h-100 text-center p-4">
-                <img
-                  src="https://images-eu.ssl-images-amazon.com/images/I/416npwZlh7L._SX300_SY300_QL70_FMwebp_.jpg"
-                  className="card-img-top"
-                  alt="ok"
-                  height="250px"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ok</h5>
-                  <p className="card-text fw-bold">Rs.600</p>
-                  <NavLink to="/" className="btn btn-outline-danger">
-                    Buy Now
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card h-100 text-center p-4">
-                <img
-                  src="https://images-eu.ssl-images-amazon.com/images/I/416npwZlh7L._SX300_SY300_QL70_FMwebp_.jpg"
-                  className="card-img-top"
-                  alt="ok"
-                  height="250px"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ok</h5>
-                  <p className="card-text fw-bold">Rs.600</p>
-                  <NavLink to="/" className="btn btn-outline-danger">
-                    Buy Now
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card h-100 text-center p-4">
-                <img
-                  src="https://images-eu.ssl-images-amazon.com/images/I/416npwZlh7L._SX300_SY300_QL70_FMwebp_.jpg"
-                  className="card-img-top"
-                  alt="ok"
-                  height="250px"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ok</h5>
-                  <p className="card-text fw-bold">Rs.600</p>
-                  <NavLink to="/" className="btn btn-outline-danger">
-                    Buy Now
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card h-100 text-center p-4">
-                <img
-                  src="https://images-eu.ssl-images-amazon.com/images/I/416npwZlh7L._SX300_SY300_QL70_FMwebp_.jpg"
-                  className="card-img-top"
-                  alt="ok"
-                  height="250px"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ok</h5>
-                  <p className="card-text fw-bold">Rs.600</p>
-                  <NavLink to="/" className="btn btn-outline-danger">
-                    Buy Now
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card h-100 text-center p-4">
-                <img
-                  src="https://images-eu.ssl-images-amazon.com/images/I/416npwZlh7L._SX300_SY300_QL70_FMwebp_.jpg"
-                  className="card-img-top"
-                  alt="ok"
-                  height="250px"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ok</h5>
-                  <p className="card-text fw-bold">Rs.600</p>
-                  <NavLink to="/" className="btn btn-outline-danger">
-                    Buy Now
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card h-100 text-center p-4">
-                <img
-                  src="https://images-eu.ssl-images-amazon.com/images/I/416npwZlh7L._SX300_SY300_QL70_FMwebp_.jpg"
-                  className="card-img-top"
-                  alt="ok"
-                  height="250px"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ok</h5>
-                  <p className="card-text fw-bold">Rs.600</p>
-                  <NavLink to="/" className="btn btn-outline-danger">
-                    Buy Now
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card h-100 text-center p-4">
-                <img
-                  src="https://images-eu.ssl-images-amazon.com/images/I/416npwZlh7L._SX300_SY300_QL70_FMwebp_.jpg"
-                  className="card-img-top"
-                  alt="ok"
-                  height="250px"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ok</h5>
-                  <p className="card-text fw-bold">Rs.600</p>
-                  <NavLink to="/" className="btn btn-outline-danger">
-                    Buy Now
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card h-100 text-center p-4">
-                <img
-                  src="https://images-eu.ssl-images-amazon.com/images/I/416npwZlh7L._SX300_SY300_QL70_FMwebp_.jpg"
-                  className="card-img-top"
-                  alt="ok"
-                  height="250px"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ok</h5>
-                  <p className="card-text fw-bold">Rs.600</p>
-                  <NavLink to="/" className="btn btn-outline-danger">
-                    Buy Now
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card h-100 text-center p-4">
-                <img
-                  src="https://images-eu.ssl-images-amazon.com/images/I/416npwZlh7L._SX300_SY300_QL70_FMwebp_.jpg"
-                  className="card-img-top"
-                  alt="ok"
-                  height="250px"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ok</h5>
-                  <p className="card-text fw-bold">Rs.600</p>
-                  <NavLink to="/" className="btn btn-outline-danger">
-                    Buy Now
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card h-100 text-center p-4">
-                <img
-                  src="https://images-eu.ssl-images-amazon.com/images/I/416npwZlh7L._SX300_SY300_QL70_FMwebp_.jpg"
-                  className="card-img-top"
-                  alt="ok"
-                  height="250px"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ok</h5>
-                  <p className="card-text fw-bold">Rs.600</p>
-                  <NavLink to="/" className="btn btn-outline-danger">
-                    Buy Now
-                  </NavLink>
-                </div>
-              </div>
-            </div>
+              </>
+            ))}
           </div>
         </div>
       </div>

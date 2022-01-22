@@ -14,7 +14,7 @@ const Signup = () => {
         onClick={handleShow}
         className="ms-2"
       >
-        <i className="fa  fa-user-plus"></i> Register
+        <i className="fa  fa-user-plus" style={{color:"#daa520",fontSize:"20px"}}></i> Register
       </Button>
 
       <Modal show={show} onHide={handleClose}>

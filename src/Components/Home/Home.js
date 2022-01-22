@@ -1,7 +1,4 @@
 import React from "react";
-import Footer from "../Footer/Footer";
-
-import Navbar from "../Navbar/Navbar";
 import Product from "../Product/Product";
 
 const Home = () => {
@@ -9,7 +6,6 @@ const Home = () => {
     <>
       <div>
         <div className="hero">
-          <Navbar />
           <div className="card bg-dark text-white border-0">
             <img
               src="https://image.freepik.com/free-photo/beautiful-woman-black-friday-concept-with-copy-space_23-2148674185.jpg"
@@ -21,7 +17,7 @@ const Home = () => {
               <div className="container ">
                 <h5
                   className="card-title display-3 fw-bolder mb-2"
-                  style={{ paddingLeft: "400px", paddingTop: "200px" }}
+                  style={{ paddingLeft: "410px", paddingTop: "150px" }}
                 >
                   NEW SEASON ARRIVAL
                 </h5>
@@ -33,7 +29,6 @@ const Home = () => {
           </div>
         </div>
         <Product />
-        <Footer />
       </div>
     </>
   );

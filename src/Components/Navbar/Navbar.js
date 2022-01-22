@@ -7,14 +7,26 @@ const Navbar = () => {
   return (
     <>
       <div>
+        <ul class="nav justify-content-center">
+          <li class="nav-item fw-bold" style={{color:"red",}}>
+           
+              Sale 70% Off..!! Buy Three Get One FREE
+            
+          </li>
+        </ul>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container" style={{ color: "white" }}>
             <NavLink
               className="navbar-brand fw-bold fs-3"
               to="/"
-              style={{ color: "white" }}
+              style={{ color: "white", width: "100px" ,paddingLeft:"10px"}}
             >
-              S&S CART
+              <img
+                src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+                className="card-img-top"
+                alt="T-Shirt White and Black"
+                height="33px"
+              />
             </NavLink>
             <button
               class="navbar-toggler"
@@ -27,65 +39,55 @@ const Navbar = () => {
             >
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div
-              className="collapse navbar-collapse text-center fs-6 fw-bold"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav mx-auto mr-5 mb-2 mb-lg-0 ">
-                <li className="nav-item">
+            &nbsp;
+            <ul class="nav justify-content-center" style={{ width: "900px" }}>
+              <li class="nav-item" style={{color:"white",paddingTop:"11px"}}>
+                
+                  <i class="fas fa-map-marker-alt" style={{color:"#ffd700",fontSize:"20px"}}></i>
+                 &nbsp; Select Your Address
+                
+              </li>
+             
+              <li className="nav-item"  style={{paddingLeft:"50px"}}>
+                <form class="d-flex mt-1">
+                  <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Search Product Here..."
+                    aria-label="Search"
+                    size="40"
+                  />
+                 
+                    <i class="fas fa-search" style={{fontSize:"40px",cursor:"pointer"}}></i>
+  
+                </form>
+              </li>
+            </ul>
+
+            <ul class="nav justify-content-end" style={{ width: "450px" }}>
+              <li class="nav-item" style={{paddingTop:"11px"}}>
+               
+                  <Login />
+              
+              </li>
+              <li class="nav-item"  style={{paddingTop:"11px"}}>
+               
+                  <Signup />
+                
+              </li>
+
+              <li class="nav-item">
+                <button className="btn">
                   <NavLink
-                    className="nav-link active"
-                    aria-current="page"
-                    to="/"
-                    style={{ color: "white" }}
+                    to="/cart"
+                    className="btn btn-outline-dark"
+                    style={{ color: "white",fontSize:"20px"}}
                   >
-                    Home
+                    <i className="fa  fa-shopping-cart" style={{color:"#ffd700",fontSize:"25px"}}></i> Cart
                   </NavLink>
-                </li>
-                &nbsp; &nbsp;
-                <li className="nav-item">
-                  <NavLink
-                    className="nav-link"
-                    to="/products"
-                    style={{ color: "white" }}
-                  >
-                    Products
-                  </NavLink>
-                </li>
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                <li className="nav-item">
-                  <form class="d-flex mt-1">
-                    <input
-                      class="form-control me-2"
-                      type="search"
-                      placeholder="Search"
-                      aria-label="Search"
-                    />
-                    <button class="btn btn-outline-success" type="submit">
-                      Search
-                    </button>
-                  </form>
-                </li>
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                <li className="nav-item">
-                  <div className="buttons">
-                    <Login />
-                    &nbsp; &nbsp;
-                    <Signup />
-                    &nbsp; &nbsp;
-                    <button className="btn">
-                      <NavLink
-                        to="/cart"
-                        className="btn btn-outline-dark"
-                        style={{ color: "white" }}
-                      >
-                        <i className="fa  fa-shopping-cart"></i> Cart
-                      </NavLink>
-                    </button>
-                  </div>
-                </li>
-              </ul>
-            </div>
+                </button>
+              </li>
+            </ul>
           </div>
         </nav>
       </div>
