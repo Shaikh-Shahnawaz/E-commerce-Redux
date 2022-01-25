@@ -1,17 +1,19 @@
 import React from "react";
-import Product from "../Product/Product";
+import AllProduct from "../Product/AllProduct";
 
 const Home = () => {
   return (
     <>
       <div>
         <div className="hero">
-          <div className="card bg-dark text-white border-0">
+          <div className="card bg-dark text-white">
             <img
-              src="https://image.freepik.com/free-photo/beautiful-woman-black-friday-concept-with-copy-space_23-2148674185.jpg"
+              // src="https://image.freepik.com/free-photo/beautiful-woman-black-friday-concept-with-copy-space_23-2148674185.jpg"
+              // src="https://source.unsplash.com/1200x400/?shoping"
+              src="/images/Home-banner.jpg"
               className="card-img"
               alt="Background"
-              height="550px"
+              height="700px"
             />
             <div className="card-img-overlay d-flex flex-column ">
               <div className="container ">
@@ -28,7 +30,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <Product />
+        <AllProduct />
       </div>
     </>
   );
