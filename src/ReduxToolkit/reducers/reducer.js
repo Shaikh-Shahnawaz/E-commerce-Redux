@@ -8,6 +8,7 @@ const initialState = {
   productById:{},
   cart:[],
   value:0,
+  filterData:[]
 }
 
 export const productSlice = createSlice({
@@ -15,35 +16,19 @@ export const productSlice = createSlice({
   initialState,
   reducers: {
     addToCart:(state,action)=>{
-      // console.log('reducerProduct==->>',action.payload)
       state.cart.push(action.payload)
     },
 
     deleteCartItem:(state,action)=>{
       state.cart.splice(action.payload,1)
+      // state.cart = state.cart.filter(ele=> ele.id !== action.payload)
     },
 
     searchProduct:(state,action)=>{
-
-      // let search = [...state.allProduct]
-      // state.searchProduct = [...state.allProduct]
-
-      state.allProduct = state.allProduct.filter((ele)=>{
-
-        console.log('seacr item-=-=->',action.payload)
-        // console.log('batao==>>',ele.title.toLowercase().includes(action.payload))
-        // console.log('gegeog===>>',ele.title.toLowercase())
+      state.filterData = state.allProduct.filter((ele)=>{       
         if(ele.title.toLowerCase().includes(action.payload)){
           return ele.title
         }
-
-        // if(!(ele.title.toLowerCase().includes(action.payload))){
-        //   return ele
-        // }
-        // else{
-        //   return ele
-        // }
-
       })
     }
 

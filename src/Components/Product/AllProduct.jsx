@@ -12,6 +12,9 @@ function Product() {
 
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.allProduct);
+  const filterProduct = useSelector(state=> state.product.filterData)
+
+  console.log('allProduct=-=->>',filterProduct)
 
   useEffect(() => {
     dispatch(fetchProductGetRequest());
@@ -29,7 +32,19 @@ function Product() {
               </h1>
               <hr></hr>
             </div>
-            {products.map((ele) => (
+            {
+            filterProduct ? 
+            filterProduct.map(ele=>(
+              <SingleProduct
+              product={ele}
+              id={ele.id}
+              image={ele.image}
+              title={ele.title}
+              price={ele.price}
+              />
+            ))
+
+            :products.map((ele) => (
              <SingleProduct
              product={ele}
              id={ele.id}
