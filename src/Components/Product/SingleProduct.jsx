@@ -29,6 +29,7 @@ const SingleProduct = ({ id, image, title, price, product }) => {
 
           <div className="card-body">
             <h5 className="card-title">{title.substring(0, 11)}</h5>
+            {/* <h5 className="card-title">{title}</h5> */}
 
             <p className="card-text fw-bold">Rs. {Math.ceil(price * 76)}</p>
           </div>

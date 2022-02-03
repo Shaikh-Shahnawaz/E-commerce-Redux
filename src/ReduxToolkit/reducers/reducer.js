@@ -15,8 +15,17 @@ export const productSlice = createSlice({
   name: 'product',
   initialState,
   reducers: {
+    
     addToCart:(state,action)=>{
-      state.cart.push(action.payload)
+
+      const index = state.cart.findIndex(item=> item.id === action.payload.id)
+      
+      if(index === -1){
+        state.cart.push(action.payload)
+      }
+      else{
+        state.cart[index].quantity +=1
+      }
     },
 
     deleteCartItem:(state,action)=>{
@@ -37,8 +46,6 @@ export const productSlice = createSlice({
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(fetchProductGetRequest.fulfilled, (state, action) => {
-      
-
       // console.log('actionPayload=-=->>',action.payload)
         state.allProduct = action.payload
     })
@@ -46,7 +53,6 @@ export const productSlice = createSlice({
     .addCase(fetchProductById.fulfilled, (state,action)=>{
       // console.log('productby id',action.payload)
       state.productById = action.payload
-
 
     })
     
